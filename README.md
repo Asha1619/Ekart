@@ -1,0 +1,1 @@
+eKart is a web-based online shopping platform developed using Django, HTML, CSS, Bootstrap, and PostgreSQL. It allows customers to register, browse products, manage their cart, place orders, and view order history. The admin can manage products, categories, customers, inventory, and orders through a dedicated dashboard
