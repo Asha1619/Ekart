@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,11 +78,11 @@ WSGI_APPLICATION = 'ekart.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'Ekart db',
-        'USER':'postgres',
-        'PASSWORD':'asha',
-        'HOST': 'localhost',
-        'PORT':'5432',
+        'NAME': os.environ.get('DATABASE'),
+        'USER': os.environ.get('USERNAME'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
+        'PORT': os.environ.get('PORT'),
     }
 }
 
@@ -124,6 +126,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static_files",
 ]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Media files (uploaded images)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
