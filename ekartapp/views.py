@@ -40,13 +40,6 @@ def register(request):
                     "error": "Enter a valid email address."
                 })
 
-            # Password validation
-            password_pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
-            if not re.match(password_pattern, password):
-                return render(request, "register.html", {
-                    "error": "Password must be at least 8 characters and include an uppercase letter, lowercase letter, number, and special character."
-                })
-
             # Save data
             Register.objects.create(
                 name=name,
@@ -65,7 +58,9 @@ def register(request):
         return render(request, "register.html", {
             "error": str(e)
         })
-  
+
+
+
 
 
 def login(request):
