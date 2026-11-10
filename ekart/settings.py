@@ -68,12 +68,12 @@ STORAGES = {
 
 
 
-ROOT_URLCONF = 'skill_swap.urls'
+ROOT_URLCONF = 'ekart.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'skill_swap' / 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'skill_swap.wsgi.application'
+WSGI_APPLICATION = 'ekart.wsgi.application'
 
 
 # Database
